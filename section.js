@@ -89,7 +89,7 @@ const handleCategoryId = async(categoryId)=>{
                    
                      </div>
                 
-                 <p id="viewsId" class="mt-3 font-normal text-base text-[#171717B2]">${blogs.others.views}<span class="text-sm"> views</span></p>
+                 <p class="mt-3 font-normal text-base text-[#171717B2] cardView">${blogs.others.views}<span class="text-sm"> views</span></p>
              </div>
                </div>
              </div>
@@ -118,53 +118,35 @@ document.getElementById('Blog').addEventListener(('click'),function(){
     window.location.href="blog.html";
 });
 
-document.getElementById('sorting').addEventListener('click',function(){
-  const handleCategoryId = async()=>{
-    // console.log(categoryId)
-    const res = await fetch (`https://openapi.programming-hero.com/api/videos/category/1000`);
-    const data = await res.json();
-    console.log(data.data);
-    let array = [];
+document.getElementById('sorting').addEventListener('click', function () {
+  let array = [];
 
-    data.data?.forEach((blogs2)=>{
-      console.log(blogs2.others.views);
-        // view works 
-        let views = blogs2.others.views;
-        let convertViews = parseInt(views);
-        array.push(convertViews)
-        
-      })
-      array.sort((a,b)=>b-a);
-    console.log(array);
-    
+  const showCardView = document.getElementsByClassName('cardView');
+  // console.log(showCardView)
 
-    const viewsElements = document.querySelectorAll('#viewsId');
-   let array2=[]
-    // Iterate over the selected elements
-    viewsElements.forEach((viewsElement) => {
-      // Get the text content of each element and parse it
-      const numericValue = parseInt(viewsElement.innerText.split(" ")[0]);
-      console.log(numericValue);
-      array2.sort((c,d)=>d-c);
-      array2.push(numericValue);
-      console.log(array2)
-      const matchIndex = array.findIndex((value) => value === numericValue);
+  for (const view of showCardView) {
+      const getViewsData = view.innerText;
+      const getOnlyViews = parseFloat(getViewsData);
+      const viewsParentElement = view.parentElement.parentElement.parentElement.parentElement
+      console.log(viewsParentElement)
+      array.push({ card: viewsParentElement, views: getOnlyViews });
 
-      if (matchIndex !== -1) {
-        const viewsElements = document.querySelectorAll('#viewsId');
-        console.log(viewsElement.parentNode.parentNode.parentNode.parentNode)
-        
-        console.log(`Match found at array index: ${matchIndex}`);
-      } else {
-        console.log(`No match found for numericValue: ${numericValue}`);
-      }  
-      });
+  }
 
-   
+  console.log(array)
+  // const sortedarray = array.sort((a, b) => b.views - a.views);
+  array.sort((a, b) => b.views - a.views);
+  // console.log(sortedarray)
 
-   };
-   handleCategoryId();
-}) 
+  const cardContainer = document.getElementById('card-container');
+
+  cardContainer.innerHTML = '';
+
+  for (const item of array) {
+      console.log(item)
+      cardContainer.appendChild(item.card);
+  }
+});
   
 
   
