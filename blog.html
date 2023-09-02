@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Open+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        max-width: 1440px;
+        min-width: 50px;
+        margin: 50px auto 0;
+      }
+      .inter {
+        font-family: "Inter", sans-serif;
+      }
+      .heading {
+        text-align: center;
+        font-size: 30px;
+      }
+      .title {
+        font-size: 25px;
+      }
+      hr {
+        width: 50%;
+        color: gray;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body class="container mx-auto inter">
+    <h1 class="heading">Blog Questions and Answers</h1>
+    <h2 class="title">1.Let's Discuss the scope of var , let and const</h2>
+    <h4>--Var--:</h4>
+    <ul>
+      <li>Var is a keyword of Variable</li>
+      <li>Var is a global variable and it can be accessible from anywhere</li>
+      <li>Var are functional scope and they can access within the function</li>
+      <li>
+        Var are hoisted to the top of their containing function or global scope
+      </li>
+      <li>Var value can be reassigned and redeclared</li>
+    </ul>
+    <h4>--Let--:</h4>
+    <ul>
+      <li>Let is a block scoped</li>
+      <li>Let can be accesible only within the block</li>
+      <li>
+        Let can be hoisted but the value initialized as undefined .Because the
+        declaration have a dead-zone where it has been hoisted
+      </li>
+      <li>Let cant be redeclared</li>
+      <li>Let Cant be reinitialized</li>
+    </ul>
+    <h4>--Const--:</h4>
+    <ul>
+      <li>Const mean the value is constant that cant be changed</li>
+      <li>Const is a block scope that can be accessible within block</li>
+      <li>Const Cant be redeclared</li>
+      <li>Const Cant be reinitialized</li>
+    </ul>
+    <hr />
+    <h2 class="title">2.Tell us the use cases of null and undefined
+    </h2>
+    <h4>--Null--:</h4>
+    <ul>
+      <li>Null means there is no value and no assignned value</li>
+      <li>
+        Its often used when need to make it clear that the value should be empty
+        or undefned
+      </li>
+      <li>
+        Null can be defined in object so that it can understand that the objects
+        should be clear and reset
+      </li>
+    </ul>
+    <h4>--Undefined--:</h4>
+    <ul>
+      <li>Undefined happens when a variable has been declared but there is no value initialized </li>
+      <li>When we want to access object properties but that doesnt exist</li>
+      <li>During callback function undefined is certainly used to indicate that a function has no value or that an error occurred!!</li>
+    </ul>
+    <hr>
+    <h2 class="title">3. What do you mean by REST API?</h2>
+    <h4>--Rest Api--:</h4>
+    <ul>
+        <li>REST API stands for Representational State Transfer Application Programming Interface.</li>
+        <li>REST APIs are widely used for building web services </li>
+        <li>While requesting information from server by the clients,there should be all the information.It should be easy to cache</li>
+        <li>REST APIs often use standard HTTP methods (GET, POST, PUT, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources.</li>
+        <li>REST APIs are  commonly used in web and mobile applications to perform actions on resources, retrieve data, and interact with backend services over HTTP.</li>
+    </ul>
+    <hr>
+
+  </body>
+</html>
