@@ -128,7 +128,7 @@ document.getElementById('sorting').addEventListener('click', function () {
       const getViewsData = view.innerText;
       const getOnlyViews = parseFloat(getViewsData);
       const viewsParentElement = view.parentElement.parentElement.parentElement.parentElement
-      console.log(viewsParentElement)
+      // console.log(viewsParentElement)
       array.push({ card: viewsParentElement, views: getOnlyViews });
 
   }
